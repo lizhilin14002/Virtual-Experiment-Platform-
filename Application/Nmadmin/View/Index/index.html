@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+  <meta name="HandheldFriendly" content="true">  
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait">
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-orientation" content="portrait">
+  <!-- UC强制全屏 -->
+  <meta name="full-screen" content="yes">
+  <!-- QQ强制全屏 -->
+  <meta name="x5-fullscreen" content="true">    
+  <link href="__STYLE__/image/logo.ico" rel="icon" />     
+  <title>NEWMOOC教师端管理系统</title>
+  <script src="__STYLE__/js/jquery.min.js"></script>
+  <script type="text/javascript" language="javascript">
+      $(document).ready(function(){
+        $('#nav1').addClass('active');
+    });
+  </script>
+  <link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="__STYLE__/css/animate.min.css"/>
+  <link rel="stylesheet" href="__STYLE__/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__STYLE__/css/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="__STYLE__/css/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" type="text/css" href="__STYLE__/css/admin.css"/>
+</head>
+<body class="hold-transition skin-blue fixed sidebar-mini">
+<div class="wrapper">
+  <include file="Public:nav" />
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        主页
+        <small>数据概览</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active"><a href="#"><i class="fa fw fa-dashboard"></i> 主页</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Your Page Content Here -->
+      <h4 class="page-header">统计图</h4>
+      <div class="row">
+        <div class="col-md-12 boxpadding">
+          <div class="col-md-12 padding1">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title"><b>统计图</b></h3>
+              </div>
+              <div class="box-body">
+                <p>折线统计图</p>
+                <div id="line" style="width:100%;height:300px;"></div>
+              </div>  
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <include file="Public:footer" />
+</div>  
+</body>
+</html>
+<script src="__STYLE__/js/bootstrap.min.js"></script>
+ <script src="__STYLE__/js/jquery.slimscroll.min.js"></script>
+  <!-- FastClick -->
+  <script src="__STYLE__/js/fastclick.js"></script>
+  <!-- AdminLTE App -->
+  <script src="__STYLE__/css/dist/js/app.min.js"></script>
+  <script src="__STYLE__/js/echarts.min.js"></script>
+  <script type="text/javascript">
+//折线图
+var line = echarts.init(document.getElementById('line'));
+option = {
+    title: {
+        text: ''
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
+    },
+    legend: {
+        data:['点击量','收藏量']
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'点击量',
+            type:'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+            data:[120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name:'收藏量',
+            type:'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+            data:[60, 111, 50, 60, 45, 168, 160]
+        }
+    ]
+};
+line.setOption(option);
+</script>

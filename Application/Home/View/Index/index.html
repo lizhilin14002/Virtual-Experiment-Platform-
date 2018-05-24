@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<link href="__STYLE__/image/logo.ico" rel="icon" /> 
+	<meta name="keywords" content="空间艺术设计虚拟仿真实验教学中心,虚拟现实,大连东软信息学院,东软信息学院,东软学院,东软,neusoft,虚拟实验平台,大连东软,大连高校">    
+	<meta name="description" content="空间艺术设计虚拟仿真实验教学中心是依托于大连东软信息学院省级信息技术虚拟仿真实验教学中心、辽宁省数字艺术实验教学示范中心、大连市虚拟现实创新设计与应用研发重点实验室、大连市微电影工程技术研究中心、辽宁省普通高等学校本科重点建设专业——动画、辽宁省普通高等学校本科综合改革试点专业——影视摄影与制作、东软集团校外实践教学基地、中新软件校外实践教学基地等平台，为适应学校创新创业教育教学改革需要，为进一步增强为行业企业技术进步服务的能力、以及为区域经济和社会发展服务的能力，结合学校学科专业特色与优势，灵活运用多种形式的共建模式，通过多方整合空间艺术设计基础创新与产品预研等多个不同层次的实验室资源，按照“建设靠学校、发展靠社会、维护靠自身”的原则建设而成的。">
+	<title>空间艺术设计虚拟仿真实验教学中心</title>
+	<script src="__STYLE__/js/jquery.min.js"></script>
+	<link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="__STYLE__/css/animate.min.css"/>
+	<link rel="stylesheet" type="text/css" href="__STYLE__/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="__STYLE__/css/mycss.css"/>
+</head>
+<body>
+<include file="Public:header" />
+<!--主体-->
+<div class="container-fluid">
+	<div class="row clearfix">
+		<div class="col-xs-12 column padding1">
+			<div class="carousel slide" id="carousel-1">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-1">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-1">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-1">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img alt="" src="__STYLE__/image/Slideshow3.jpg" style="height:400px;width:100%;"/>
+						<div class="carousel-caption">
+							<h4>
+								1
+							</h4>
+							<p>
+								111
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="__STYLE__/image/Slideshow2.jpg" style="height:400px;width:100%;" />
+						<div class="carousel-caption">
+							<h4>
+								2
+							</h4>
+							<p>
+								222
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="__STYLE__/image/Slideshow1.jpg" style="height:400px;width:100%;" />
+						<div class="carousel-caption">
+							<h4>
+								3
+							</h4>
+							<p>
+								333
+							</p>
+						</div>
+					</div>
+				</div> <a class="left carousel-control" href="#carousel-1" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-1" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-xs-3 column">
+			<ul class="list-unstyled card" style="padding-bottom:4px;height: 540px;">
+				<li>
+					教学资源 
+				</li>
+				<volist name="courselist" id="courselistitem" empty="$newsempty">
+					<li>
+						<a href="__ROOT__/Home/course/course?courseid={$courselistitem.rid}">
+							{$courselistitem.rtitle|htmlspecialchars_decode|mb_substr=0,23,'utf-8'}
+							<if condition="mb_strlen((string)$courselistitem['rtitle'],'utf-8') egt 23">
+								...
+							</if>
+						</a>
+					</li>
+		      	</volist>
+			</ul>
+		</div>
+		<div class="col-xs-9 column">
+			<div class="row clearfix">
+				<div class="col-xs-8 column">
+					<ul class="list-unstyled card" style="height: 256px;">
+						<li>
+							新闻动态
+						</li>
+						<volist name="newslist1" id="newsitem1" empty="$newsempty">
+							<li>
+								<a href="__ROOT__/Home/news/news?id={$newsitem1.newsid}">
+									{$newsitem1.newstitle|htmlspecialchars_decode|mb_substr=0,25,'utf-8'}
+									<if condition="mb_strlen((string)$newsitem1['newstitle'],'utf-8') egt 25">
+										...
+									</if>
+									<font style="float:right;">{$newsitem1.newsaddtime|strtotime|date="Y-m-d",###}</font>
+								</a>
+							</li>
+				      	</volist>
+					</ul>
+				</div>
+				<div class="col-xs-4 column">
+					<ul class="list-unstyled card" style="height: 256px;">
+						<li>
+							中心介绍
+						</li>
+						<li>
+							
+						</li>
+							<video src="__STYLE__/video/HisSun.mp4" controls="controls" loop="loop" autoplay="autoplay" width="100%" height="auto">
+								您的浏览器不支持video标签
+							</video>
+						<li style="padding: 14px 10px">
+							中心介绍简介
+						</li>
+					</ul>	
+				</div>
+				<div class="col-xs-12 column margin1">
+					<ul class="list-unstyled card">
+						<li>
+							作品展示
+						</li>
+						<li align="center">
+							<div class="row clearfix indexshow">
+								<volist name="newslist2" id="newsitem2" empty="$newsempty">
+									<a href="__ROOT__/Home/news/news?id={$newsitem2.newsid}">
+										<div class="col-xs-3 column">
+										 	<img src="__STYLE__/image/{$newsitem2.newsimg}">
+										 	<h5>{$newsitem2.newstitle}</h5>   
+										</div>
+									</a>
+						      	</volist>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 column margin1">
+			<ul class="list-unstyled card">
+				<li>
+					获奖证书
+				</li>
+				<li>
+					<div class="carousel-box">
+					    <div class="carousel">
+					        <div class="list-unstyled carousel-content">
+					            <div class="carousel-wrap">
+					                <ul>
+					                    <li><img src="__STYLE__/images/1.jpg"></li>
+					                    <li><img src="__STYLE__/images/2.jpg"></li>
+					                    <li><img src="__STYLE__/images/3.jpg"></li>
+					                    <li><img src="__STYLE__/images/4.jpg"></li>
+					                    <li><img src="__STYLE__/images/5.jpg"></li>
+					                    <li><img src="__STYLE__/images/6.jpg"></li>
+					                    <li><img src="__STYLE__/images/3.jpg"></li>
+					                    <li><img src="__STYLE__/images/4.jpg"></li>
+					                    <li><img src="__STYLE__/images/5.jpg"></li>
+					                    <li><img src="__STYLE__/images/6.jpg"></li>
+					                </ul>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row clearfix padding14" align="center">
+		<h1>空间艺术设计虚拟仿真实验教学中心</h1>
+		<h5 class="maincolor1 margin11">TVirtual Simulation Experiment Teaching center of Space art design</h5>
+	</div>
+</div>	
+<!--主体结束-->
+<include file="Public:footer" />
+</body>
+
+</html>
+
+<script type="text/javascript" src="__STYLE__/js/carousel.js"></script>
+<script type="text/javascript" src="__STYLE__/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript">
+$(function(){ $('input, textarea').placeholder(); });
+</script>
+<script src="__STYLE__/js/bootstrap.min.js"></script>
+
+
+

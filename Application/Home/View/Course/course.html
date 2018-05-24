@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <link href="__STYLE__/image/logo.ico" rel="icon" /> 
+    <meta name="keywords" content="空间艺术设计虚拟仿真实验教学中心,虚拟现实,大连东软信息学院,东软信息学院,东软学院,东软,neusoft,虚拟实验平台,大连东软,大连高校">    
+    <meta name="description" content="空间艺术设计虚拟仿真实验教学中心是依托于大连东软信息学院省级信息技术虚拟仿真实验教学中心、辽宁省数字艺术实验教学示范中心、大连市虚拟现实创新设计与应用研发重点实验室、大连市微电影工程技术研究中心、辽宁省普通高等学校本科重点建设专业——动画、辽宁省普通高等学校本科综合改革试点专业——影视摄影与制作、东软集团校外实践教学基地、中新软件校外实践教学基地等平台，为适应学校创新创业教育教学改革需要，为进一步增强为行业企业技术进步服务的能力、以及为区域经济和社会发展服务的能力，结合学校学科专业特色与优势，灵活运用多种形式的共建模式，通过多方整合空间艺术设计基础创新与产品预研等多个不同层次的实验室资源，按照“建设靠学校、发展靠社会、维护靠自身”的原则建设而成的。">
+    <title>空间艺术设计虚拟仿真实验教学中心</title>
+    <script src="__STYLE__/js/jquery.min.js"></script>
+    <link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__STYLE__/css/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__STYLE__/css/style.css"/>
+</head>
+<body>
+<include file="Public:header" />
+<div class="container margin16">
+	<div class="row clearfix">
+		<div class="col-xs-12 column coursepart">
+			<div class="page-header" align="center">
+              <h3>{$result.rtitle}</h3>
+              <h6>{$result.raddtime}</h6>
+            </div>
+            <if condition="$result['rattachtype'] eq 1">
+            	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="__STYLE__/resources/{$result.rattachment}" width="1030" height="600" id="Untitled-1" align="center">
+					<param name="allowScriptAccess" value="sameDomain" />
+					<param name="movie" value="__STYLE__/resources/{$result.rattachment}" />
+					<param name="quality" value="high" />
+					<param name="bgcolor" value="#ffffff" />
+					<embed src="__STYLE__/resources/{$result.rattachment}" quality="high" bgcolor="#ffffff" width="1030"  height="600" name="mymovie" align="center"   type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+				</object>
+				<elseif condition="$result['rattachtype'] eq 2"/>
+					<video src="__STYLE__/resources/{$result.rattachment}" controls="controls" width="100%" height="auto">
+						您的浏览器不支持video标签
+					</video>
+				<elseif condition="$result['rattachtype'] eq 3"/>
+					<div class="embed-responsive embed-responsive-16by9" style="width:100%"> 
+					 	<iframe src="__STYLE__/resources/{$result.rattachment}"></iframe> 
+					</div> 
+				<else />
+            </if>
+            <p>{$result.rcontent|htmlspecialchars_decode|stripslashes}</p>
+		</div>
+	</div>
+</div>		
+<include file="Public:footer" />
+</body>
+
+</html>
+<script src="__STYLE__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__STYLE__/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript">
+$(function(){ $('input, textarea').placeholder(); });
+</script>
+<script src="__STYLE__/js/bootstrap.min.js"></script>
+

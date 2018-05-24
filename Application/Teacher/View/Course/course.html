@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+  <meta name="HandheldFriendly" content="true">  
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait">
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-orientation" content="portrait">
+  <!-- UC强制全屏 -->
+  <meta name="full-screen" content="yes">
+  <!-- QQ强制全屏 -->
+  <meta name="x5-fullscreen" content="true">    
+  <link href="__STYLE__/image/logo.ico" rel="icon" />     
+  <title>课程管理</title>
+  <script src="__STYLE__/js/jquery.min.js"></script>
+  <script type="text/javascript" language="javascript">
+      $(document).ready(function(){
+        $('#nav2').addClass('active');
+    });
+  </script>
+  <link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="__STYLE__/css/animate.min.css"/>
+  <link rel="stylesheet" href="__STYLE__/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__STYLE__/css/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="__STYLE__/css/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" type="text/css" href="__STYLE__/css/admin.css"/>
+  <style type="text/css">
+    .small-box>.small-box-footer{
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+    }
+    .small-box>.small-box-footer:hover {
+    color: #fff;
+    background: rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body class="hold-transition skin-blue fixed sidebar-mini">
+<div class="wrapper">
+  <include file="Public:nav" />
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        课程管理
+        <small>课程详情</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active"><a href="#"><i class="fa fw fa-dashboard"></i> 主页</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content" name="course">
+      <!-- Your Page Content Here -->
+      <!-- <h4 class="page-header">课程列表</h4> -->
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="sub-header">{$course.name}<a class="btn btn-primary" href="javascript:void(0)" onclick="deletecourse('{$course.id}')"  style="float:right;">删除</a></h2>
+            <div class="col-md-6 boxpadding">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title"><b>课程介绍</b></h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- box-body -->
+                <div class="box-body">
+                  <p><b>课程名：</b>{$course.name}</p>
+                  <p><b>课程分类：</b>{$course.type}</p>
+                  <p><b>课程状态：</b>{$course.status}</p>
+                  <p><b>封面图片：</b><img src="__STYLE__/image/{$course.img}" class="img-responsive"></p>
+                  <p><b>课程简介：</b>{$course.introduce}</p>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                  <a href="__URL__/changecourse?id={$course.id}"><button type="submit" class="btn btn-primary">修改</button></a>
+                </div>
+              </div>
+              <!-- /.box -->
+            </div>
+            <div class="col-md-6 boxpadding">
+              <div class="col-md-12 padding1">
+                <div class="box box-primary">
+                  <div class="box-header with-border">
+                    <h3 class="box-title"><b>统计图</b></h3>
+                  </div>
+                  <div class="box-body">
+                    <p>本门课程数据统计图</p>
+                    <div id="line" style="width:100%;height:300px;"></div>
+                  </div>  
+                </div>
+              </div> 
+              <!-- <div class="col-md-12 padding1">
+                <div class="box box-primary">
+                  <div class="box-header with-border">
+                    <h3 class="box-title"><b>课程公告</b></h3>
+                  </div>
+                  <div class="box-body">
+                    <p>{$course.introduce}</p>
+                  </div>  
+                </div>
+              </div>   -->
+            </div>
+            <div class="col-md-12 boxpadding">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title" style="line-height:34px;"><b>课程章节</b><a class="btn btn-primary" href="__URL__/addsection?id={$courseid}" style="float:right;">添加</a></h3>
+                </div>
+                <div class="box-body">
+                  <div class="panel-group" id="panel-1">
+                    <volist name="sectionlist" id="sectionlistitem" key="k">
+                    <div class="panel panel-default">
+                      <a data-toggle="collapse" data-parent="#panel-1" href="#panel-1-{$k}">
+                      <div class="panel-heading mainbgcolor14">
+                         {$k}.{$sectionlistitem.sectionname}
+                      </div>
+                      </a>
+                      <div id="panel-1-{$k}" class="panel-collapse collapse"> <!-- collapse in -->
+                        <div class="panel-body">
+                          <a href="__ROOT__/home/course/video?id={$sectionlistitem.sectionid}" target="_blank" class="a1">视频</a>
+                          <a href="__STYLE__/pdf/{$sectionlistitem.paper}" target="_blank" title="{$sectionlistitem.paper}" class="a1">课件</a>
+                          <a href="__STYLE__/pdf/{$sectionlistitem.courseware}" target="_blank" title="{$sectionlistitem.courseware}" class="a1">试题</a>
+                          <a href="__STYLE__/package/{$sectionlistitem.resource}" target="_blank" title="{$sectionlistitem.resource}" class="a1">相关资源</a>
+                          <a href="javascript:void(0)" class="a2" onclick="deletesection('{$sectionlistitem.sectionid}')" style="float:right;">删除</a>
+                          <a href="__URL__/changesection?id={$sectionlistitem.sectionid}" target="_blank" class="a2" style="float:right;">修改&nbsp;&nbsp;</a>
+                        </div>
+                      </div>
+                    </div>
+                    </volist>
+                  </div>
+              </div>
+            </div>
+        </div> 
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <include file="Public:footer" />
+</div>  
+</body>
+</html>
+<script src="__STYLE__/js/bootstrap.min.js"></script>
+<script src="__STYLE__/js/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="__STYLE__/js/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="__STYLE__/css/dist/js/app.min.js"></script>
+<script src="__STYLE__/js/echarts.min.js"></script>
+<script type="text/javascript" language="javascript">
+      $(document).ready(function(){
+        $(".panel-collapse [title='#']").css("display","none");
+      });
+</script>
+<script type="text/javascript" language="javascript">
+    function deletecourse(c) {
+        var msg = "您真的确定要删除该课程吗？删除后所有课程章节也都会被删除！";
+        if (confirm(msg)==true){
+            location.href = "__URL__/delete_course?id="+c;
+        }else{
+            return false;
+        }
+    }
+    function deletesection(a) {
+        var msg = "您真的确定要删除该章节吗？\n\n请确认！";
+        if (confirm(msg)==true){
+            location.href = "__URL__/delete_section?id="+a;
+        }else{
+            return false;
+        }
+    }
+</script>
+<script type="text/javascript">
+//折线图
+// var line = echarts.init(document.getElementById('line'));
+// option = {
+//     title: {
+//         text: ''
+//     },
+//     tooltip : {
+//         trigger: 'axis',
+//         axisPointer: {
+//             type: 'cross',
+//             label: {
+//                 backgroundColor: '#6a7985'
+//             }
+//         }
+//     },
+//     legend: {
+//         data:['点击量','收藏量']
+//     },
+//     toolbox: {
+//         feature: {
+//             saveAsImage: {}
+//         }
+//     },
+//     grid: {
+//         left: '3%',
+//         right: '4%',
+//         bottom: '3%',
+//         containLabel: true
+//     },
+//     xAxis : [
+//         {
+//             type : 'category',
+//             boundaryGap : false,
+//             data : ['周一','周二','周三','周四','周五','周六','周日']
+//         }
+//     ],
+//     yAxis : [
+//         {
+//             type : 'value'
+//         }
+//     ],
+//     series : [
+//         {
+//             name:'点击量',
+//             type:'line',
+//             stack: '总量',
+//             areaStyle: {normal: {}},
+//             data:[120, 132, 101, 134, 90, 230, 210]
+//         },
+//         {
+//             name:'收藏量',
+//             type:'line',
+//             stack: '总量',
+//             areaStyle: {normal: {}},
+//             data:[60, 111, 50, 60, 45, 168, 160]
+//         }
+//     ]
+// };
+// line.setOption(option);
+</script>
+<script type="text/javascript">
+//饼状图
+var line = echarts.init(document.getElementById('line'));
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['点击量','收藏量']
+    },
+    series: [
+        {
+            name:'数据',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:{$coursesee}, name:'点击量'},
+                {value:{$coursename}, name:'收藏量'}
+            ]
+        }
+    ]
+};
+
+line.setOption(option);
+</script>

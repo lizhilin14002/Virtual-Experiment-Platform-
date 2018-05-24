@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<link href="__STYLE__/image/logo.ico" rel="icon" /> 
+	<meta name="keywords" content="空间艺术设计虚拟仿真实验教学中心,虚拟现实,大连东软信息学院,东软信息学院,东软学院,东软,neusoft,虚拟实验平台,大连东软,大连高校">    
+	<meta name="description" content="空间艺术设计虚拟仿真实验教学中心是依托于大连东软信息学院省级信息技术虚拟仿真实验教学中心、辽宁省数字艺术实验教学示范中心、大连市虚拟现实创新设计与应用研发重点实验室、大连市微电影工程技术研究中心、辽宁省普通高等学校本科重点建设专业——动画、辽宁省普通高等学校本科综合改革试点专业——影视摄影与制作、东软集团校外实践教学基地、中新软件校外实践教学基地等平台，为适应学校创新创业教育教学改革需要，为进一步增强为行业企业技术进步服务的能力、以及为区域经济和社会发展服务的能力，结合学校学科专业特色与优势，灵活运用多种形式的共建模式，通过多方整合空间艺术设计基础创新与产品预研等多个不同层次的实验室资源，按照“建设靠学校、发展靠社会、维护靠自身”的原则建设而成的。">
+	<title>空间艺术设计虚拟仿真实验教学中心</title>
+	<script src="__STYLE__/js/jquery.min.js"></script>
+	<link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="__STYLE__/css/animate.min.css"/>
+	<link rel="stylesheet" type="text/css" href="__STYLE__/css/style.css"/>
+</head>
+<body>
+<include file="Public:header" />
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column padding1" align="center" style="min-height:500px;padding-top:100px;">
+			<form class="form-horizontal margin4" method="post" action="__URL__/login_process" autocomplete="off">
+				<fieldset>
+
+				<!-- 表单名称 -->
+				<legend>登录</legend>
+                <php>
+	                if(!isset($_SESSION['user_id'])){
+	                    echo '<p class="error">'.$error_msg.'</p>';
+	                }
+                </php>
+				<!-- 文本框-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">账号</label>  
+				  <div class="col-md-4">
+				  <input id="" name="user" type="text" placeholder="" class="form-control input-md" required="">
+				    
+				  </div>
+				</div>
+
+				<!-- 文本框-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">密码</label>  
+				  <div class="col-md-4">
+				  <input id="" name="password" type="password" placeholder="" class="form-control input-md" required="">
+				    
+				  </div>
+				</div>
+				<!--验证码-->
+				<div class="form-group">
+				  <label class="col-md-4 margin19 control-label" for="textinput">验证码</label>  
+				  <div class="col-md-2 margin19">
+						<input id="" name="verify" type="text" placeholder="验证码" class="form-control input-md" style="height: 50px;" required="">
+				  </div>
+					<div class="col-md-2 margin19" id="captcha-container">
+						<img height="50px" alt="验证码" src="{:U('Home/Form/myverify',array())}" title="点击刷新">
+				  </div>
+				</div>
+
+				<!-- 按钮 -->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="singlebutton"></label>
+				  <div class="col-md-4">
+				    <input type="submit" value="登录"  class="btn btn-block btn-lg btn-submit" style="background-color:#444;color:#ffffff;"></button>
+                    <h6 align="right"><!-- <a href="http://newmooc.tianyongxin.cn/wxlogin/" style="color:#444;">&nbsp;&nbsp;微信登录</a> --><a href="__ROOT__/home/form/register" style="color:#444;">&nbsp;&nbsp;免费注册</a></h6>
+				  </div>
+				</div>
+
+				</fieldset>
+			</form>
+
+		</div>
+	</div>
+</div>
+<script>
+	var captcha_img = $('#captcha-container').find('img')  
+	var verifyimg = captcha_img.attr("src");  
+	captcha_img.attr('title', '点击刷新');  
+	captcha_img.click(function(){  
+			if( verifyimg.indexOf('?')>0){  
+					$(this).attr("src", verifyimg+'&random='+Math.random());  
+			}else{  
+					$(this).attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());  
+			}  
+	}); 
+</script>
+<include file="Public:footer" />
+</body>
+</html>
+
+<script type="text/javascript" src="__STYLE__/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript">
+$(function(){ $('input, textarea').placeholder(); });
+</script>
+<script src="__STYLE__/js/bootstrap.min.js"></script>
+
+
+
+

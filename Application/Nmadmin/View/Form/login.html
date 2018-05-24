@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+  <meta name="HandheldFriendly" content="true">  
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait">
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-orientation" content="portrait">
+  <!-- UC强制全屏 -->
+  <meta name="full-screen" content="yes">
+  <!-- QQ强制全屏 -->
+  <meta name="x5-fullscreen" content="true">    
+  <link href="__STYLE__/image/logo.ico" rel="icon" /> 
+  <title>NEWMOOC教师端登录</title>
+  <script src="__STYLE__/js/jquery.min.js"></script>    
+  <script src="__STYLE__/js/bootstrap.min.js"></script>  
+  <link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet">
+  <link href="__STYLE__/css/main.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      font-weight: 300;
+    }
+    body ::-webkit-input-placeholder {
+      /* WebKit browsers */
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      font-weight: 300;
+    }
+    body :-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      opacity: 1;
+      font-weight: 300;
+    }
+    body ::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      opacity: 1;
+      font-weight: 300;
+    }
+    body :-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      font-weight: 300;
+    }
+    .container h1 {
+  font-size: 40px;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-put;
+          transition-timing-function: ease-in-put;
+  font-weight: 200;
+  }
+  </style>
+</head>
+<body>
+<div class="container-fluid tadminlogin">
+    <div class="row clearfix wrapper">
+        <div class="col-xs-12 column padding1" align="center">
+          <h1>NEWMOOC后台</h1>
+
+          <form id="loginForm" method="post" action="__URL__/login_process" class="form" autocomplete="off">
+            <div class="col-xs-12 column form-group">
+              <input type="text" id="username" name="ausername"  placeholder="用户名" required>
+            </div>
+            <div class="col-xs-12 column form-group">
+              <input type="password" id="password" name="apassword" placeholder="密码" required>
+            </div>
+            <div class="col-xs-12 column form-group">
+                <input name="verify" type="text" placeholder="验证码" required>
+            </div>
+            <div class="col-xs-12 column form-group" id="captcha-container">
+                <div style="width:280px;background-color:#F3F9FC;">
+                <img style="height:50px;width:auto;" alt="验证码" src="{:U('Nmadmin/Form/myverify',array())}" title="点击刷新">
+                </div>
+            </div>
+            <div class="col-xs-12 form-group">
+              <button type="submit" name="submit" class="btn btn-flat btn-lg">登录</button>
+            </div>
+          </form>
+        </div>
+    </div>
+</div>
+
+<script>
+	var captcha_img = $('#captcha-container').find('img')  
+	var verifyimg = captcha_img.attr("src");  
+	captcha_img.attr('title', '点击刷新');  
+	captcha_img.click(function(){  
+			if( verifyimg.indexOf('?')>0){  
+					$(this).attr("src", verifyimg+'&random='+Math.random());  
+			}else{  
+					$(this).attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());  
+			}  
+	}); 
+</script>
+
+</body> 
+</html>

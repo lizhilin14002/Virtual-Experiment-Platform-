@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-xs-12 column">
+            <img src="__STYLE__/image/vrcenter.png" class="img-responsive">     
+        </div>
+    </div>  
+</div>
+<div class="topnav">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column padding1">
+                <nav class="navbar-default" role="navigation">                   
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+<!--                             <li id="nav1">
+                                 <a href="__ROOT__/home/index">首页</a>
+                            </li>
+                            <li id="nav2">
+                                 <a href="__ROOT__/home/course">课程</a>
+                            </li>
+                            <li id="nav3">
+                                 <a href="__ROOT__/home/course/teacher">老师</a>
+                            </li>
+                            <li id="nav4">
+                                 <a href="__ROOT__/home/news">公告</a>
+                            </li> -->
+                            <volist name="navlist" id="navlistitem">
+                                <li>
+                                    <a href="__ROOT__/home/{$navlistitem.type1url}">{$navlistitem.type1name}</a>
+                                </li>
+                            </volist>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                 <?php
+                            if(!isset($_SESSION['username'])){
+                                echo'<a href="__ROOT__/Home/Form/login" style="float:left;">登录</a><font class="shu" style="float:left;">&nbsp;|&nbsp;</font><a href="__ROOT__/Home/Form/register" style="float:left;">注册</a>';
+                                }
+                            else{
+                                $username= $_SESSION['username'];
+                                echo  "<a href='__ROOT__/Home/Form/change' style='float:left;'>你好,".$username."</a><font class='shu' style='float:left;'>&nbsp;|&nbsp;</font><a href='__ROOT__/Home/Form/logout' style='float:left;'>退出</a>";
+                                    }
+                            ?>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>  
+</div>
+<!-- <script type="text/javascript" language="javascript">
+    $(function() {
+        $('.box1').dotdotdot({
+            wrap: 'letter' 
+        });
+    })
+</script>  -->

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+  <meta name="HandheldFriendly" content="true">  
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait">
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-orientation" content="portrait">
+  <!-- UC强制全屏 -->
+  <meta name="full-screen" content="yes">
+  <!-- QQ强制全屏 -->
+  <meta name="x5-fullscreen" content="true">    
+  <link href="__STYLE__/image/logo.ico" rel="icon" />     
+  <title>修改个人信息</title>
+  <script src="__STYLE__/js/jquery.min.js"></script>
+  <script type="text/javascript" language="javascript">
+      $(document).ready(function(){
+        $('#nav6').addClass('active');
+    });
+  </script>
+  <link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="__STYLE__/css/animate.min.css"/>
+  <link rel="stylesheet" href="__STYLE__/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__STYLE__/css/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="__STYLE__/css/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" type="text/css" href="__STYLE__/css/admin.css"/>
+</head>
+<body class="hold-transition skin-blue fixed sidebar-mini">
+<div class="wrapper">
+  <include file="Public:nav" />
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        个人资料
+        <small>修改个人信息</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active"><a href="#"><i class="fa fw fa-dashboard"></i> 主页</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content" name="teacher">
+      <!-- Your Page Content Here -->
+      <!-- <h4 class="page-header">课程列表</h4> -->
+      <div class="row">
+        <div class="col-md-12 main">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title" style="line-height:34px;"><b>修改个人信息：{$teacher.teacher}老师</b><a class="btn btn-primary" href="__URL__/index" style="float:right;">返回</a></h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal padding2" action="__ROOT__/teacher/User/change_user" method="post" enctype="multipart/form-data" autocomplete="off">
+              <!-- 文本框-->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="name">姓名</label>  
+                <div class="col-md-6">
+                <input id="teacherid" name="teacherid" type="hidden"  value="{$teacher.teacherid}" class="form-control input-md" />
+                <input id="teachername" name="teachername" type="text"  value="{$teacher.teachername}" class="form-control input-md" />
+                </div>
+              </div>
+
+              <!-- 文件按钮 --> 
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="teacherimg">头像</label>
+                <div class="col-md-6">
+                  <img class="img-thumbnail img-circle teacherimg" src="__STYLE__/image/{$teacher.teacherimg}"/>
+                  <span class="help-block">位置：__STYLE__/image/{$teacher.teacherimg}</span>
+                  <input id="teacherimg" name="teacherimg" class="input-file" type="file" />
+                </div>
+              </div>
+
+              <!-- 文本框-->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="name">系别与专业</label>  
+                <div class="col-md-6">
+                <input id="department" name="department" type="text"  value="{$teacher.department}" class="form-control input-md" />
+                </div>
+              </div>
+
+              <!-- 文本框-->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="name">职称</label>  
+                <div class="col-md-6">
+                <input id="position" name="position" type="text"  value="{$teacher.position}" class="form-control input-md" />
+                </div>
+              </div>
+
+              <!-- 文本域 -->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="introduce">教师简介</label>
+                <div class="col-md-6">                     
+                  <textarea class="form-control" id="teacherintroduce" name="teacherintroduce" rows="10">{$teacher.teacherintroduce}</textarea>
+                </div>
+              </div>
+              <div class="box-footer">
+                <!-- 双按钮 -->
+                <div class="form-group  margin1">
+                  <label class="col-md-3 control-label"></label>
+                  <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <button type="reset" class="btn btn-default">还原</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div> 
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <include file="Public:footer" />
+</div>  
+</body>
+</html>
+<script src="__STYLE__/js/bootstrap.min.js"></script>
+<script src="__STYLE__/js/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="__STYLE__/js/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="__STYLE__/css/dist/js/app.min.js"></script>

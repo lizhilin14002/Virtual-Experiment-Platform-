@@ -1,0 +1,101 @@
+.box.box-primary {
+    border-top-color: #0088cc;
+}
+.skin-blue .main-header .navbar {
+    background-color: #3c8dbc;
+}
+.mainbgcolor1{
+  background-color: #0088cc;
+}
+.mainbgcolor2{
+  background-color: #333333;
+}
+.mainbgcolor3{
+  background-color: #ffffff;
+}
+.maincolor1{
+  color: #0088cc;
+}
+.maincolor2{
+  color: #333333;
+}
+.maincolor3{
+  color: #ffffff;
+}
+.padding1{
+  padding-left:0px;
+  padding-right:0px;
+}
+.padding2{
+  padding:10px;
+}
+.margin1{
+  margin-bottom: 0px;
+}
+.teacherimg{
+    height: 100px;
+    width:100px;
+    text-align: center;
+    padding: 9px;
+}
+.teacherimgposition{
+    position: absolute;
+    width: 100%;
+    margin-left: -20px;
+    margin-top: -135px;
+}
+@media (max-width: 769px) {
+  .boxpadding{
+  padding-left:0px;
+  padding-right:0px;
+  }
+}
+.box-header>.fa, .box-header>.glyphicon, .box-header>.ion, .box-header .box-title {
+    display: block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1;
+}
+.a1{
+    color: #0088cc;
+}
+.a2{
+    color: red;
+}
+/*分页样式*/
+.pages a,
+.pages span {
+	display: inline-block;
+	padding: 2px 5px;
+	margin: 0 1px;
+	border: 1px solid #f0f0f0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.pages a,
+.pages li {
+	display: inline-block;
+	list-style: none;
+	text-decoration: none;
+	color: #58A0D3;
+}
+
+.pages a.first,
+.pages a.prev,
+.pages a.next,
+.pages a.end {
+	margin: 0;
+}
+
+.pages a:hover {
+	border-color: #50A8E6;
+}
+
+.pages span.current {
+	background: #50A8E6;
+	color: #FFF;
+	font-weight: 700;
+	border-color: #50A8E6;
+}

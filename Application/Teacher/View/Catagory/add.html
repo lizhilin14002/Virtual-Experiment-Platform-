@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>分类管理:添加</title>
+    <script src="__STYLE__/js/jquery.min.js"></script>    
+    <script src="__STYLE__/js/bootstrap.min.js"></script>  
+    <link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__STYLE__/css/teacher.css" rel="stylesheet">
+    <script src="__STYLE__/js/active.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">NEWMOOC系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <include file="./Application/Teacher/Common/nav.html" />
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <include file="./Application/Teacher/Common/sidebar.html" />
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <p class="pull-right" style="margin-top: 20px;"><a class="btn btn-primary" href="__ROOT__/teacher/Catagory">返回</a></p>
+          <h2 class="sub-header">分类管理:添加分类</h2>
+          <form class="form-horizontal" action="__ROOT__/teacher/Catagory/add_process" method="post" enctype="multipart/form-data" autocomplete="off">
+          <!-- 文本框-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">分类名</label>  
+            <div class="col-md-4">
+            <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required />
+              
+            </div>
+          </div>
+
+          <!-- 选择框 -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="status">状态</label>
+            <div class="col-md-4">
+              <select id="status" name="status" class="form-control">
+                <option value="1">启用</option>
+                <option value="0">禁用</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 双按钮 -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="">操作</label>
+            <div class="col-md-8">
+              <button type="submit" class="btn btn-primary">提交</button>
+              <button type="reset" class="btn btn-default">清空</button>
+            </div>
+          </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+</body>
+</html>

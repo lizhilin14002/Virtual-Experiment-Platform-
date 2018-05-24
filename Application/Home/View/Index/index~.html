@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="HandheldFriendly" content="true">  
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ强制竖屏 -->
+	<meta name="x5-orientation" content="portrait">
+	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- QQ强制全屏 -->
+	<meta name="x5-fullscreen" content="true">    
+	<link href="__STYLE__/image/logo.ico" rel="icon" />     
+	<title>NEWMOOC慕课学习平台</title>
+	<script src="__STYLE__/js/jquery.min.js"></script>
+	<script type="text/javascript" language="javascript">
+	    $(document).ready(function(){
+	    	$('#nav1').addClass('active');
+		});
+	</script>
+	<link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="__STYLE__/css/animate.min.css"/>
+	<link rel="stylesheet" type="text/css" href="__STYLE__/css/main.css"/>
+	<style type="text/css">
+	#particles {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    }
+    canvas{
+       width: 100%;
+       height: 600px;
+    }
+    .intro{
+       position:absolute;
+       margin-top:-350px;
+       width: 100%;
+       background-color: rgba(0,136,204,0.1);
+       text-align: center;
+    }
+    @media (max-width: 769px) {
+   	canvas{
+       width: 100%;
+       height: 400px;
+    }
+    .intro{
+       margin-top:-250px;
+    }
+	}
+	</style>
+</head>
+<body>
+<include file="Public:header" />
+<div class="container-fluid animated zoomIn">
+	<div class="row clearfix banner2">
+		<div class="col-md-12 column padding1"  id="particles">
+			<div class="intro">
+				<h1>分享，传播，改变</h1>
+				<h2>NEWMOOC</h2>
+			</div>
+		</div>  
+	</div>
+</div>
+<!--主体-->
+<div class="container-fluid" id="part1">
+<div class="container">
+	<div class="row clearfix padding14" align="center">
+		<h1>课程推荐</h1>
+		<h5 class="maincolor1 margin11">用心做好每一堂课</h5>
+		<div class="col-md-12 column padding1">
+			<volist name="recommendlist" id="recommendlistitem">
+				<a href="__ROOT__/home/course/course?id={$recommendlistitem.id}" target="_blank">
+			    <div class="col-md-4 column margin16">
+					<div class="mainbgcolor3 shadow1">
+			      	<img src="__STYLE__/image/{$recommendlistitem.img}" class="img-responsive">
+			      	<h5 class="box1">{$recommendlistitem.name}</h5>
+			      	</div>  
+				</div>
+				</a>
+			</volist>
+		</div>
+	</div>
+</div>
+</div>
+<div class="container-fluid mainbgcolor6" id="part2">
+<div class="container">
+	<div class="row clearfix padding14" align="center">
+		<h1>热门课程</h1>
+		<h5 class="maincolor1 margin11">用收藏量来说话</h5>
+		<volist name="collectionrank" id="collectionrankitem">
+			<a href="__ROOT__/home/course/course?id={$collectionrankitem.id}" target="_blank">
+			<div class="col-md-3 column margin16">
+				<div class="mainbgcolor3 shadow1">
+			      	<img src="__STYLE__/image/{$collectionrankitem.img}" class="img-responsive">
+			      	<h5 class="box1" style="text-align:left;">{$collectionrankitem.name}</h5>
+			      	<div align="left" class="padding10 padding16"> 
+				      	<p class="font1">老师:{$collectionrankitem.teachername}</p> 
+				      	<p><font class="glyphicon glyphicon-user index-course-number"></font><font class="font1">&nbsp;{$collectionrankitem.number}</font></p>
+			      	</div>  
+		      	</div>  
+			</div>
+			</a>
+		</volist>
+	</div>
+</div>	
+</div>
+<div class="container-fluid mainbgcolor13 maincolor3" id="part3">
+<div class="container">
+	<div class="row clearfix padding14" align="center">
+		<h1>网站数据</h1>
+		<h5 class="maincolor2 margin11">我们会一直努力</h5>
+		<div class="col-md-4 column margin16" id="f1">
+			<h1 style="font-size:64px;"  name="coursenumber">{$coursenumber}</h1>
+			<h5 class="maincolor2">课程</h5>
+		</div>
+		<div class="col-md-4 column margin16" id="f2">
+			<h1 style="font-size:64px;"  name="teachernumber">{$teachernumber}</h1>
+			<h5 class="maincolor2">讲师</h5>
+		</div>
+		<div class="col-md-4 column margin16" id="f3">
+			<h1 style="font-size:64px;"  name="usernumber">{$usernumber}</h1>
+			<h5 class="maincolor2">用户</h5>
+		</div>
+	</div>
+</div>	
+</div>
+<div class="container-fluid mainbgcolor6" id="part2">
+<div class="container">
+	<div class="row clearfix padding14" align="center">
+		<h1>NEWMOOC</h1>
+		<h5 class="maincolor1 margin11">The New Massive Open Online Course</h5>
+		<div class="index-course-button2"><h1 style="font-size:48px;">扬帆起航<h1></div>
+	</div>
+</div>	
+</div>
+<!-- <div style="position:fixed;top:50%;height:200px;right:0;background-color:red;">
+	<div id="aaaaa"></div>
+	<div id="bbbbb"></div>
+</div> -->
+<!--主体结束-->
+<include file="Public:footer" />
+</body>
+
+</html>
+
+<script type="text/javascript" src="__STYLE__/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript">
+$(function(){ $('input, textarea').placeholder(); });
+</script>
+<script src="__STYLE__/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__STYLE__/js/jquery.particleground.min.js"></script>
+<script type="text/javascript" src="__STYLE__/js/jquery.dotdotdot.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  var a = '#0088cc';
+  $('#particles').particleground({
+    dotColor: a,
+    lineColor: '#0088cc',
+    minSpeedX:0.3,
+    maxSpeedX:0.6,
+    minSpeedY:0.3,
+    maxSpeedY:0.6,
+    density:7000,//确定生成多少粒子
+    particleRadius:3,//粒子半径
+    Dotsize:3,//点的大小
+    lineWidth:1,//线的宽度
+    proximity:60,//两个点间多远开始连
+    curvedLines:false,//线是否弯曲
+    parallax:true,//视差效果
+    parallaxMultiplier:5,//数量越低,视差效果更强
+ //    onInit	function() {},//初始时调用函数
+	// onDestroy	function() {},//销毁时调用函数
+	// 	pause：暂停
+	// $('#your-element').particlegound('pause');
+	// start：开始
+	// $('#your-element').particlegound('start');
+	// destroy：销毁，把插件移除
+	// $('#your-element').particlegound('destroy');
+    directionX:'center',// 可以“center”,“left”或'right”。“中心”意味着点将反弹的边缘画布。
+	directionY:'center'	// 可以 'center', 'up' or 'down'. 'center' 意味着点将反弹的边缘画布。
+  });
+});
+</script>
+<script type="text/javascript" language="javascript">
+    $(function() {
+        $('.box1').dotdotdot({
+            wrap: 'letter' 
+        });
+    })
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  var wh=$(window).height();
+  var a=0;
+  var b=0;
+  var c=0;
+  var endbottom=$("#endbottom").offset().top;
+  var gh=wh/endbottom*wh;//滚动条高度
+  $(window).scroll(function() {   
+    	var w=$(window).scrollTop();
+    	var aa=$("#part1").offset().top;
+    	var bb=$("#part2").offset().top;
+    	var cc=$("#part3").offset().top;
+    	if(((w+wh)>=aa)&&(a==0)){
+    		$('#part1').addClass('animated bounceIn');
+    		// $("#part1").fadeIn();
+    		a=1;
+    	}
+    	if(((w+wh)>=bb)&&(b==0)){
+    		$('#part2').addClass('animated bounceInLeft');
+    		b=1;
+    	}
+    	if(((w+wh)>=cc)&&(c==0)){
+    		$('#f1').addClass('animated fadeInDownBig');
+    		$('#f2').addClass('animated fadeInDownBig');
+    		$('#f3').addClass('animated fadeInDownBig');
+    		c=1;
+    	}
+    	var h=Math.round(w*100/(endbottom-wh))+'%';
+    	$("#aaaaa").css('background-color','green');
+    	$("#aaaaa").css('height',h);
+    	$("#aaaaa").text(w+wh);
+    	$("#bbbbb").text(cc);
+		// if(s>300){
+  //           $("#logo").css("display","none");
+		// }else if(s<=10){
+  //           $("#logo").css("display","block");
+		// }
+  });
+	// $(window).scroll(function() {
+	//  var x=$("#footer").offset();
+	//  $("#aaaaa").text(x.top);
+	// });
+});
+</script>
+
